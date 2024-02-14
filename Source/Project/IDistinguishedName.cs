@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace RegionOrebroLan.DirectoryServices
 {
 	public interface IDistinguishedName : IEquatable<IDistinguishedName>

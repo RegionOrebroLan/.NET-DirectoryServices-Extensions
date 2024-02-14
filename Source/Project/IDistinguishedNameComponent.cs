@@ -1,5 +1,3 @@
-using System;
-
 namespace RegionOrebroLan.DirectoryServices
 {
 	public interface IDistinguishedNameComponent : IEquatable<IDistinguishedNameComponent>
