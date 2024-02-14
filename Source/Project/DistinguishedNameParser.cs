@@ -5,20 +5,11 @@ using System.Linq;
 
 namespace RegionOrebroLan.DirectoryServices
 {
-	public class DistinguishedNameParser : BasicParser<IDistinguishedName>
+	public class DistinguishedNameParser(IDistinguishedNameComponentValidator distinguishedNameComponentValidator) : BasicParser<IDistinguishedName>
 	{
-		#region Constructors
-
-		public DistinguishedNameParser(IDistinguishedNameComponentValidator distinguishedNameComponentValidator)
-		{
-			this.DistinguishedNameComponentValidator = distinguishedNameComponentValidator ?? throw new ArgumentNullException(nameof(distinguishedNameComponentValidator));
-		}
-
-		#endregion
-
 		#region Properties
 
-		protected internal virtual IDistinguishedNameComponentValidator DistinguishedNameComponentValidator { get; }
+		protected internal virtual IDistinguishedNameComponentValidator DistinguishedNameComponentValidator { get; } = distinguishedNameComponentValidator ?? throw new ArgumentNullException(nameof(distinguishedNameComponentValidator));
 		public virtual DistinguishedNameCase NameCase { get; set; } = DistinguishedNameCase.None;
 
 		#endregion

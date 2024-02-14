@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace RegionOrebroLan.DirectoryServices
 {
-	public class FilterBuilder : IFilterBuilder
+	public class FilterBuilder(params string[] filters) : IFilterBuilder
 	{
 		#region Fields
 
@@ -16,18 +16,9 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#endregion
 
-		#region Constructors
-
-		public FilterBuilder(params string[] filters)
-		{
-			this.Filters = new List<string>(filters);
-		}
-
-		#endregion
-
 		#region Properties
 
-		public virtual IList<string> Filters { get; }
+		public virtual IList<string> Filters { get; } = new List<string>(filters);
 
 		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		public virtual FilterOperator Operator { get; set; } = FilterOperator.And;
