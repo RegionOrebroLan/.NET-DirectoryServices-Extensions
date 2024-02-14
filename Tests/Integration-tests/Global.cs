@@ -11,7 +11,7 @@ namespace IntegrationTests
 		#region Fields
 
 		public const string DefaultEnvironment = "Integration-test";
-		public static readonly string ProjectDirectoryPath = new DirectoryInfo(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName;
+		public static readonly DirectoryInfo ProjectDirectory = new DirectoryInfo(Directory.GetCurrentDirectory()).Parent!.Parent!.Parent!;
 
 		#endregion
 	}

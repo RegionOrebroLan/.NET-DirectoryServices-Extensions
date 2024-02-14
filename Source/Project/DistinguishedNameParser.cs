@@ -13,7 +13,7 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Methods
 
-		public virtual IDistinguishedName Parse(string value)
+		public virtual IDistinguishedName Parse(string? value)
 		{
 			if(value == null)
 				throw new ArgumentNullException(nameof(value));

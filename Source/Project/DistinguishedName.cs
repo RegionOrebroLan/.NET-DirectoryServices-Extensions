@@ -16,7 +16,7 @@ namespace RegionOrebroLan.DirectoryServices
 		public virtual IList<IDistinguishedNameComponent> Components { get; } = [];
 		public virtual DistinguishedNameCase NameCase { get; set; } = DistinguishedNameCase.None;
 
-		public virtual IDistinguishedName Parent
+		public virtual IDistinguishedName? Parent
 		{
 			get
 			{
@@ -38,12 +38,12 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Methods
 
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
 			return this.Equals(obj as IDistinguishedName);
 		}
 
-		public bool Equals(IDistinguishedName other)
+		public bool Equals(IDistinguishedName? other)
 		{
 			if(other == null)
 				return false;

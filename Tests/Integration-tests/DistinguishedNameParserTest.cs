@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RegionOrebroLan.DirectoryServices;
 
 namespace IntegrationTests
@@ -30,7 +30,7 @@ namespace IntegrationTests
 			Assert.AreEqual("First-name", distinguishedName.Components[2].Value);
 
 			var parent = distinguishedName.Parent;
-			Assert.AreEqual(7, parent.Components.Count);
+			Assert.AreEqual(7, parent!.Components.Count);
 			Assert.AreEqual("SERIALNUMBER", parent.Components[0].Name);
 			Assert.AreEqual("ABxxxxxxxxxx-abc123", parent.Components[0].Value);
 		}

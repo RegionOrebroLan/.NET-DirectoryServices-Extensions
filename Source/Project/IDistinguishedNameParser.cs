@@ -4,7 +4,7 @@ namespace RegionOrebroLan.DirectoryServices
 	{
 		#region Methods
 
-		IDistinguishedName Parse(string value);
+		IDistinguishedName Parse(string? value);
 
 		#endregion
 	}

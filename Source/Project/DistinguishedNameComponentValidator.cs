@@ -6,7 +6,7 @@ namespace RegionOrebroLan.DirectoryServices
 	{
 		#region Fields
 
-		private IEnumerable<char> _invalidValueCharacters;
+		private IEnumerable<char>? _invalidValueCharacters;
 		private static readonly IEnumerable<char> _specialInvalidValueCharacters = ['/'];
 		private static readonly Regex _validNameRegularExpression = new(@"^[0-9a-zA-Z]+\z$", RegexOptions.Compiled);
 

@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace RegionOrebroLan.DirectoryServices
 {
-	public class FilterBuilder(params string[] filters) : IFilterBuilder
+	public class FilterBuilder(params string?[] filters) : IFilterBuilder
 	{
 		#region Fields
 
@@ -14,7 +14,7 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Properties
 
-		public virtual IList<string> Filters { get; } = new List<string>(filters);
+		public virtual IList<string?> Filters { get; } = new List<string?>(filters);
 		public virtual FilterOperator Operator { get; set; } = FilterOperator.And;
 		protected internal virtual ConcurrentDictionary<FilterOperator, string> OperatorValueCache => _operatorValueCache;
 
@@ -22,7 +22,7 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Methods
 
-		public virtual string Build()
+		public virtual string? Build()
 		{
 			// ReSharper disable All
 
@@ -30,7 +30,7 @@ namespace RegionOrebroLan.DirectoryServices
 
 			foreach(var filter in this.Filters.Where(filter => !string.IsNullOrWhiteSpace(filter)))
 			{
-				var resolvedFilter = filter.StartsWith("(", StringComparison.OrdinalIgnoreCase) ? filter : $"({filter})";
+				var resolvedFilter = filter!.StartsWith("(", StringComparison.OrdinalIgnoreCase) ? filter : $"({filter})";
 
 				resolvedFilters.Add(resolvedFilter);
 			}

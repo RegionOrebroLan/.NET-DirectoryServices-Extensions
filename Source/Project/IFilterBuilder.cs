@@ -4,14 +4,14 @@ namespace RegionOrebroLan.DirectoryServices
 	{
 		#region Properties
 
-		IList<string> Filters { get; }
+		IList<string?> Filters { get; }
 		FilterOperator Operator { get; set; }
 
 		#endregion
 
 		#region Methods
 
-		string Build();
+		string? Build();
 
 		#endregion
 	}

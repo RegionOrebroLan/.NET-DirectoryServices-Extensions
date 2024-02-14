@@ -46,12 +46,12 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Methods
 
-		public override bool Equals(object obj)
+		public override bool Equals(object? obj)
 		{
 			return this.Equals(obj as IDistinguishedNameComponent);
 		}
 
-		public virtual bool Equals(IDistinguishedNameComponent other)
+		public virtual bool Equals(IDistinguishedNameComponent? other)
 		{
 			if(other == null)
 				return false;

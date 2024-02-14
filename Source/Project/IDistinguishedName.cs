@@ -5,7 +5,7 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Properties
 
 		IList<IDistinguishedNameComponent> Components { get; }
-		IDistinguishedName Parent { get; }
+		IDistinguishedName? Parent { get; }
 
 		#endregion
 	}
