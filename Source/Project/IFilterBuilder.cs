@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace RegionOrebroLan.DirectoryServices
 {
 	public interface IFilterBuilder
@@ -7,8 +5,6 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Properties
 
 		IList<string> Filters { get; }
-
-		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		FilterOperator Operator { get; set; }
 
 		#endregion

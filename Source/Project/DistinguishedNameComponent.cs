@@ -1,5 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace RegionOrebroLan.DirectoryServices
 {
 	public class DistinguishedNameComponent : IDistinguishedNameComponent
@@ -81,7 +79,6 @@ namespace RegionOrebroLan.DirectoryServices
 			return this.ToString(this.NameCase);
 		}
 
-		[SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase")]
 		public virtual string ToString(DistinguishedNameCase nameCase)
 		{
 			var name = this.Name;

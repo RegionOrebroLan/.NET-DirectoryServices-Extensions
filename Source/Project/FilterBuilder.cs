@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace RegionOrebroLan.DirectoryServices
@@ -16,10 +15,7 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Properties
 
 		public virtual IList<string> Filters { get; } = new List<string>(filters);
-
-		[SuppressMessage("Naming", "CA1716:Identifiers should not match keywords")]
 		public virtual FilterOperator Operator { get; set; } = FilterOperator.And;
-
 		protected internal virtual ConcurrentDictionary<FilterOperator, string> OperatorValueCache => _operatorValueCache;
 
 		#endregion
