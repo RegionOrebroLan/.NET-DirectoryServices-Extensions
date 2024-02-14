@@ -10,7 +10,7 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Fields
 
 		private IEnumerable<char> _invalidValueCharacters;
-		private static readonly IEnumerable<char> _specialInvalidValueCharacters = new[] {'/'};
+		private static readonly IEnumerable<char> _specialInvalidValueCharacters = new[] { '/' };
 		private static readonly Regex _validNameRegularExpression = new(@"^[0-9a-zA-Z]+\z$", RegexOptions.Compiled);
 
 		#endregion
@@ -18,7 +18,7 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Properties
 
 		protected internal virtual char ComponentDelimiter => DistinguishedName.DefaultComponentDelimiter;
-		protected internal virtual IEnumerable<char> InvalidValueCharacters => this._invalidValueCharacters ??= new[] {this.ComponentDelimiter, this.NameValueDelimiter}.Concat(this.SpecialInvalidValueCharacters);
+		protected internal virtual IEnumerable<char> InvalidValueCharacters => this._invalidValueCharacters ??= new[] { this.ComponentDelimiter, this.NameValueDelimiter }.Concat(this.SpecialInvalidValueCharacters);
 		protected internal virtual char NameValueDelimiter => DistinguishedNameComponent.DefaultNameValueDelimiter;
 		protected internal virtual IEnumerable<char> SpecialInvalidValueCharacters => _specialInvalidValueCharacters;
 		protected internal virtual Regex ValidNameRegularExpression => _validNameRegularExpression;

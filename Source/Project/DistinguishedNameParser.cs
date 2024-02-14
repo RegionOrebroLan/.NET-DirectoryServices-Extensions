@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 
@@ -34,7 +33,7 @@ namespace RegionOrebroLan.DirectoryServices
 			if(value.Length == 0)
 				throw new ArgumentException("The value can not be empty.", nameof(value));
 
-			var distinguishedName = new DistinguishedName {NameCase = this.NameCase};
+			var distinguishedName = new DistinguishedName { NameCase = this.NameCase };
 
 			try
 			{
@@ -45,7 +44,7 @@ namespace RegionOrebroLan.DirectoryServices
 					if(componentParts.Length != 2)
 						throw new FormatException($"Each component in the distinguished name must consist of a name and a value separated by \"{DistinguishedNameComponent.DefaultNameValueDelimiter}\".");
 
-					distinguishedName.Components.Add(new DistinguishedNameComponent(componentParts[0].Trim(), componentParts[1], this.DistinguishedNameComponentValidator) {NameCase = this.NameCase});
+					distinguishedName.Components.Add(new DistinguishedNameComponent(componentParts[0].Trim(), componentParts[1], this.DistinguishedNameComponentValidator) { NameCase = this.NameCase });
 				}
 			}
 			catch(Exception exception)
@@ -69,7 +68,7 @@ namespace RegionOrebroLan.DirectoryServices
 			if(count < 0)
 				throw new ArgumentOutOfRangeException(nameof(count), "The count can not be less than zero.");
 
-			var temporaryValueParts = value.Split(new[] {separator});
+			var temporaryValueParts = value.Split(new[] { separator });
 
 			var valueParts = new List<string>();
 
@@ -95,7 +94,6 @@ namespace RegionOrebroLan.DirectoryServices
 			return valueParts.ToArray();
 		}
 
-		[SuppressMessage("Microsoft.Naming", "CA1725:ParameterNamesShouldMatchBaseDeclaration")]
 		public override bool TryParse(string value, out IDistinguishedName distinguishedName)
 		{
 			distinguishedName = null;
