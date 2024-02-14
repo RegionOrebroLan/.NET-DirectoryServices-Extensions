@@ -2,7 +2,7 @@ using System.Globalization;
 
 namespace RegionOrebroLan.DirectoryServices
 {
-	public class DistinguishedNameParser(IDistinguishedNameComponentValidator distinguishedNameComponentValidator) : BasicParser<IDistinguishedName>
+	public class DistinguishedNameParser(IDistinguishedNameComponentValidator distinguishedNameComponentValidator) : IDistinguishedNameParser
 	{
 		#region Properties
 
@@ -13,7 +13,7 @@ namespace RegionOrebroLan.DirectoryServices
 
 		#region Methods
 
-		public override IDistinguishedName Parse(string value)
+		public virtual IDistinguishedName Parse(string value)
 		{
 			if(value == null)
 				throw new ArgumentNullException(nameof(value));
@@ -80,13 +80,6 @@ namespace RegionOrebroLan.DirectoryServices
 			}
 
 			return valueParts.ToArray();
-		}
-
-		public override bool TryParse(string value, out IDistinguishedName distinguishedName)
-		{
-			distinguishedName = null;
-
-			return !string.IsNullOrEmpty(value) && base.TryParse(value, out distinguishedName);
 		}
 
 		#endregion
