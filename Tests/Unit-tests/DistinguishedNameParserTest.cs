@@ -20,6 +20,44 @@ namespace UnitTests
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public async Task Parse_IfValueIsEmpty_ShouldThrowAnArgumentException()
+		{
+			await Task.CompletedTask.ConfigureAwait(false);
+
+			var distinguishedNameParser = new DistinguishedNameParser(Mock.Of<IDistinguishedNameComponentValidator>());
+
+			try
+			{
+				distinguishedNameParser.Parse(string.Empty);
+			}
+			catch(ArgumentException argumentException)
+			{
+				if(argumentException.Message.StartsWith("The value can not be empty.", StringComparison.Ordinal))
+					throw;
+			}
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public async Task Parse_IfValueIsNull_ShouldThrowAnArgumentNullException()
+		{
+			await Task.CompletedTask.ConfigureAwait(false);
+
+			var distinguishedNameParser = new DistinguishedNameParser(Mock.Of<IDistinguishedNameComponentValidator>());
+
+			try
+			{
+				distinguishedNameParser.Parse(null);
+			}
+			catch(ArgumentNullException argumentNullException)
+			{
+				if(argumentNullException.Message.StartsWith("Value cannot be null.", StringComparison.Ordinal))
+					throw;
+			}
+		}
+
+		[TestMethod]
 		public async Task Parse_ShouldHandleEscapedCommaCharacters()
 		{
 			await Task.CompletedTask.ConfigureAwait(false);
