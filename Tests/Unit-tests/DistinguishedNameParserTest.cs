@@ -1,5 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -17,8 +15,8 @@ namespace UnitTests
 		{
 			var distinguishedNameComponentValidatorMock = new Mock<IDistinguishedNameComponentValidator>();
 
-			distinguishedNameComponentValidatorMock.Setup(distinguishedNameComponentValidator => distinguishedNameComponentValidator.ValidateName(It.IsAny<string>())).Returns(new List<Exception>());
-			distinguishedNameComponentValidatorMock.Setup(distinguishedNameComponentValidator => distinguishedNameComponentValidator.ValidateValue(It.IsAny<string>())).Returns(new List<Exception>());
+			distinguishedNameComponentValidatorMock.Setup(distinguishedNameComponentValidator => distinguishedNameComponentValidator.ValidateName(It.IsAny<string>())).Returns([]);
+			distinguishedNameComponentValidatorMock.Setup(distinguishedNameComponentValidator => distinguishedNameComponentValidator.ValidateValue(It.IsAny<string>())).Returns([]);
 
 			return distinguishedNameComponentValidatorMock.Object;
 		}

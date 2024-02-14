@@ -15,7 +15,7 @@ namespace RegionOrebroLan.DirectoryServices
 		#region Properties
 
 		protected internal virtual char ComponentDelimiter => DefaultComponentDelimiter;
-		public virtual IList<IDistinguishedNameComponent> Components { get; } = new List<IDistinguishedNameComponent>();
+		public virtual IList<IDistinguishedNameComponent> Components { get; } = [];
 		public virtual DistinguishedNameCase NameCase { get; set; } = DistinguishedNameCase.None;
 
 		public virtual IDistinguishedName Parent

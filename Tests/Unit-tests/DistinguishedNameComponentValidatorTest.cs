@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -33,15 +33,15 @@ namespace UnitTests
 
 			foreach(var invalidNameCharacter in invalidNameCharacters)
 			{
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + _validName).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + _validName + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + invalidNameCharacter + _validName).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + _validName + invalidNameCharacter + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + _validName).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + _validName + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + invalidNameCharacter + _validName).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + _validName + invalidNameCharacter + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
 				// The following fails
 				//Assert.IsFalse(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + invalidNameCharacter + _validName + _validName).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + invalidNameCharacter + _validName + _validName + invalidNameCharacter + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
-				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + _validName + invalidNameCharacter + invalidNameCharacter + _validName + _validName).Any(), "Character: '{0}' ({1}).", new object[] { invalidNameCharacter, (int)invalidNameCharacter });
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(invalidNameCharacter + invalidNameCharacter + _validName + _validName + invalidNameCharacter + invalidNameCharacter).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
+				Assert.IsTrue(new DistinguishedNameComponentValidator().ValidateName(_validName + _validName + invalidNameCharacter + invalidNameCharacter + _validName + _validName).Any(), "Character: '{0}' ({1}).", [invalidNameCharacter, (int)invalidNameCharacter]);
 			}
 		}
 

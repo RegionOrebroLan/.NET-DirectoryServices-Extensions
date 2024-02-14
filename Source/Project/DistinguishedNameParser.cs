@@ -68,7 +68,7 @@ namespace RegionOrebroLan.DirectoryServices
 			if(count < 0)
 				throw new ArgumentOutOfRangeException(nameof(count), "The count can not be less than zero.");
 
-			var temporaryValueParts = value.Split(new[] { separator });
+			var temporaryValueParts = value.Split([separator]);
 
 			var valueParts = new List<string>();
 
